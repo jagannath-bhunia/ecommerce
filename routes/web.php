@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', ['as' => 'admin','uses' => 'AdminController@index']);
-Route::post('login', ['as' => 'login','uses' => 'AdminController@login']);
+Route::get('/', ['as' => 'admin','uses' => 'Admin\AdminController@index']);
+Route::post('login', ['as' => 'login','uses' => 'Admin\AdminController@login']);
+
 Route::get('dashboard', ['as' => 'admin.dashboard','uses' => 'Admin\DashboardController@index']);
 Route::get('create', ['as' => 'admin.create','uses' => 'Admin\DashboardController@create']);
 Route::post('store', ['as' => 'admin.store','uses' => 'Admin\DashboardController@store']);
@@ -31,3 +32,7 @@ Route::post('storecartagory', ['as' => 'admin.storecartagory','uses' => 'Admin\D
 Route::get('showcatagory', ['as' => 'admin.showcatagory','uses' => 'Admin\DashboardController@showcatagory']);
 Route::get('deletecatagory/{id}', ['as' => 'admin.deletecatagory','uses' => 'Admin\DashboardController@deletecatagory']);
 
+Route::get('index', ['as' => 'user.index','uses' => 'User\UserController@index']);
+Route::get('userloginform', ['as' => 'user.userloginform','uses' => 'User\UserController@userloginform']);
+Route::post('userlogin', ['as' => 'user.userlogin','uses' => 'User\UserController@userlogin']);
+Route::post('userregister', ['as' => 'user.userregister','uses' => 'User\UserController@userregister']);

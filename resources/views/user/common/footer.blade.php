@@ -1,292 +1,145 @@
+
+<div class="newsletter-area">
+                <div class="container">
+                    <div class="newsletter-wrapper-all theme-bg-2">
+                        <div class="row">
+                            <div class="col-lg-5 col-12 col-md-12">
+                                <div class="newsletter-img bg-img" style="background-image: {{ URL::asset('user/img/banner/newsletter-bg.png')}}">
+                                    <img alt="image" src="{{ URL::asset('user/img/team/newsletter-img.png')}}">
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-12 col-md-12">
+                                <div class="newsletter-wrapper text-center">
+                                    <div class="newsletter-title">
+                                        <h3>Subscribe our newsletter</h3>
+                                    </div>
+                                    <div id="mc_embed_signup" class="subscribe-form">
+                                        <form action="#" method="post" id="#" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                                            <div id="mc_embed_signup_scroll" class="mc-form">
+                                                <input type="email" value="" name="EMAIL" class="email" placeholder="Enter your email here..." required>
+                                                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                                                <div class="mc-news" aria-hidden="true"><input type="text" name="b_6bbb9b6f5827bd842d9640c82_05d85f18ef" tabindex="-1" value=""></div>
+                                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <footer>
-      
-   <div class="subscribe-section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="subscribe-content">
-                        <h4> <i class="fa fa-envelope-o" aria-hidden="true"></i>newsletter</h4>
-                        <p>If you are going to use a passage of Lorem you need. </p>
-                        <form class="form-inline subscribe-form" action="newsletter" method="post">
-                            <div class="form-group mb-0">
-                                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Email...">
-                            </div>
-                            <input type="hidden" name="_token" value="2Zxb2h7mQoImvUJhZzAgxxoL9N5CcxW88wSCHibk">                            <button type="submit" class="btn btn-solid">subscribe</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-
-
-    <div class="footer-section">
-        <div class="container">
-            <div class="row section-t-space section-b-space">
-                <div class="col-xl-4 col-lg-4 about-section">
-                    <div class="footer-title footer-mobile-title">
-                        <h4>about</h4>
-                    </div>
-                    <div class="footer-content">
-                        <div class="footer-logo">
-                            <img src="../user_assets/images/icon/brand-logo/10.png" alt="">
-                        </div>
-                      <!--  <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution </p>
-                    --></div>
-                </div>
-                <div class="col-xl-2 col-lg-4 footer-link">
-                    <div>
-                        <div class="footer-title">
-                            <h4>my account</h4>
-                        </div>
-
-                        <div class="footer-content">
-                            <ul>
-                                <li><a href="/about">about us</a></li>
-                                <li><a href="/contact">contact us</a></li>
-                                <li><a href="/terms-and-conditions">terms & conditions</a></li>
-                                <li><a href="/return-policy">return policy</a></li>
-                                <li><a href="/privacy-policy">privacy policy</a></li>
-                               <!-- <li><a href="#">shipping & delivery</a></li>-->
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-xl-2 col-lg-4 footer-link">
-                    <div>
-                        <div class="footer-title">
-                            <h4>quick link</h4>
-                        </div>
-                        <div class="footer-content">
-                            <ul>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="/about">About Us</a></li>
-                                <li><a href="/shop">Shop</a></li>
-                                <li><a href="/contact">Contact Us</a></li>
-                                <li><a href="/faq">FAQ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-4 col-lg-12 ratio_square">
-                    <div class="instagram">
-                        <div>
-                            <div class="instagram-banner">
-                                <h5>follow us <span>#DrishtiKart</span></h5>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/1.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
+                <div class="footer-top pt-210 pb-98 theme-bg">
+                    <div class="container">
+                       <div class="row">
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="footer-widget mb-30">
+                                    <div class="footer-logo">
+                                        <a href="index.html">
+                                            <img src="assets/img/logo/2.png" alt="">
                                         </a>
                                     </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/2.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/3.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/4.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/5.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
+                                    <div class="footer-about">
+                                        <p><span>OSWAN</span> the most latgest bike store in the wold can serve you latest ulity of motorcycle soucan sell here your motorcycle it quo </p>
+                                        <div class="footer-support">
+                                            <h5>FOR SUPPORT</h5>
+                                            <span> 01245 658 698 (Toll Free)</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/6.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="footer-widget mb-30 pl-60">
+                                    <div class="footer-widget-title">
+                                        <h3>QUICK LINK</h3>
                                     </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/7.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
+                                    <div class="quick-links">
+                                        <ul>
+                                            <li><a href="about-us.html">About us</a></li>
+                                            <li><a href="#">Service</a></li>
+                                            <li><a href="#">Inventory</a></li>
+                                            <li><a href="shop.html">Shop</a></li>
+                                            <li><a href="blog-sidebar.html">Blog</a></li>
+                                            <li><a href="#">Conditions</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                        </ul>
                                     </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/8.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="footer-widget mb-30">
+                                    <div class="footer-widget-title">
+                                        <h3>LATEST TWEET</h3>
                                     </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/9.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
-                                            </div>
-                                        </a>
+                                    <div class="food-widget-content pr-30">
+                                        <div class="single-tweet">
+                                            <p><a href="#">@Smith,</a> the most latgest bike store in the wold can serve you 
+10 min ago</p>
+                                        </div>
+                                        <div class="single-tweet">
+                                            <p><a href="#">@Smith,</a> the most latgest bike store in the wold can serve you 
+10 min ago</p>
+                                        </div>
+                                        <div class="single-tweet">
+                                            <p><a href="#">@Smith,</a> the most latgest bike store in the wold can serve you 
+10 min ago</p>
+                                        </div>
                                     </div>
-                                    <div class="col p-0">
-                                        <a href="#">
-                                            <div class="instagram-box">
-                                                <div>
-                                                    <img src="../user_assets/images/beauty/insta/10.jpg" alt="" class=" img-fluid">
-                                                </div>
-                                                <div class="overlay">
-                                                    <i class="fa fa-instagram"  aria-hidden="true"></i>
-                                                </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12">
+                                <div class="footer-widget mb-30">
+                                    <div class="footer-widget-title">
+                                        <h3>CONTACT INFO</h3>
+                                    </div>
+                                    <div class="food-info-wrapper">
+                                        <div class="food-address">
+                                            <div class="food-info-title">
+                                                <span>Address</span>
                                             </div>
-                                        </a>
+                                            <div class="food-info-content">
+                                                <p>276 Jhilli Nogor, 4th folor, Momen Tower, Main Town, New Yourk</p>
+                                            </div>
+                                        </div>
+                                        <div class="food-address">
+                                            <div class="food-info-title">
+                                                <span>Phone</span>
+                                            </div>
+                                            <div class="food-info-content">
+                                                <p>+090 12568 369 987</p>
+                                                <p>+090 12568 369 987</p>
+                                            </div>
+                                        </div>
+                                        <div class="food-address">
+                                            <div class="food-info-title">
+                                                <span>Web</span>
+                                            </div>
+                                            <div class="food-info-content">
+                                                <a href="#">info@oswanmega.com</a>
+                                                <a href="#">www.oswanmega.com</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="call-us">
-                        <img src="../user_assets/images/call-us.jpg" alt="" class="bg-img bg-left">
-                        <div class="footer-banner-content">
-                            <div class="call-text">
-                                <div>
-                                    <h3>call us:</h3>
-                                    <span class="call-no">+91-9830342318 <span></span></span>
+                <div class="footer-bottom ptb-35 black-bg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-12">
+                                <div class="copyright">
+                                    <p>©Copyright, 2018 All Rights Reserved by <a href="https://freethemescloud.com/">Free themes Cloud</a></p>
                                 </div>
                             </div>
-                            <div class="footer-social">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
+                            <div class="col-md-4 col-12">
+                                <div class="footer-payment-method">
+                                    <a href="#"><img alt="" src="assets/img/icon-img/payment.png"></a>
+                                </div>
                             </div>
-                           <!-- <div class="address-section">
-                                <h6>address</h6>
-                                <p>B-56 big market near School<br>
-                                    USA 653-8964</p>
-                            </div>-->
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="footer-bottom">
-                        <ul>
-                                                                            <li><a href="/shop?cat=1">Men Eyeglasses</a></li>
-                                                    <li><a href="/shop?cat=2">Woman Eyeglasses</a></li>
-                                                    <li><a href="/shop?cat=3">Man Sunglasses</a></li>
-                                                    <li><a href="/shop?cat=4">Woman Sunglasses</a></li>
-                                                    <li><a href="/shop?cat=5">Contact Lenses</a></li>
-                                                    <li><a href="/shop?cat=6">Oil</a></li>
-                                                    <li><a href="/shop?cat=7">Baby Sunglass</a></li>
-                                                    <li><a href="/shop?cat=8">BISCUIT</a></li>
-                        
-                           <!-- <li><a href="#">womens</a></li>
-                            <li><a href="#">clothing</a></li>
-                            <li><a href="#">accessories</a></li>
-                            <li><a href="#">featured</a></li>
-                            <li><a href="#">service</a></li>
-                            <li><a href="#">cart</a></li>
-                            <li><a href="#">my order</a></li>-->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="sub-footer" style="background-color:#000000"> 
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="footer-end">
-                        <p>Copyright 2020 <i class="fa fa-copyright" aria-hidden="true"></i> DrishtiKart<br>  Design with Passion By <a href="https://quantex.co.in/">Quantex</a></p>
-                    </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-12">
-                    <div class="payment-card-bottom">
-                        <div id="google_translate_element"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+            </footer>
