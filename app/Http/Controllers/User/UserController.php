@@ -8,10 +8,12 @@ use App\Http\Controllers\Controller as Controller;
 
 use Illuminate\Support\Str;
 use App\Models\User;
+use App\Models\Item;   
 class UserController extends Controller
 {
     public function index(){
-        return view('user.page.index');
+        $std=Item::all();
+        return view('user.page.index',compact('std'));
     }
 
     public function userloginform(){
@@ -26,8 +28,8 @@ class UserController extends Controller
         $user = $request->only('email', 'password');
         
         if (Auth::guard('user')->attempt($user)) {
-            //return redirect()->route('user.index')->with('success', 'Login successfully.');
-            echo "Login success";
+            return redirect()->route('user.index')->with('success', 'Login successfully.');
+            //echo "Login success";
         }
         else{
             return redirect('userloginform')->with('error', 'These credentials do not match our records.');
@@ -57,5 +59,15 @@ class UserController extends Controller
             return redirect('user.userregister')->with('error','Invalid email and password');
         }
     }
-    
+
+    public function shop(){
+        $item=Item::all();
+        return view('user.page.shop',compact('item'));
+    }
+
+    public function productdetails($id)
+    {
+        $item=Item::find($id);
+        return view('user.page.product-details', compact('item'));
+    }
 }

@@ -17,15 +17,16 @@
                                             <img class="s-open" alt="" src="{{ URL::asset('user/img/icon-img/menu.png')}}">
                                             <img class="s-close" alt="" src="{{ URL::asset('user/img/icon-img/menu-close.png')}}">
                                         </button>
+                                        
                                         <div class="main-menu">
                                             <nav>
                                                 <ul>
-                                                    <li><a href="index.html">home</a></li>
+                                                    <li><a href="{{route('user.index')}}">home</a></li>
                                                     <li class="active"><a href="about-us.html">about us </a></li>
                                                     <li><a href="#">shop</a>
                                                         <ul>
-                                                            <li><a href="shop.html">shop</a></li>
-                                                            <li><a href="product-details.html">product details</a></li>
+                                                            <li><a href="{{route('user.shop')}}">shop</a></li>
+                                                            <!-- <li><a href="product-details.html">product details</a></li> -->
                                                             <li><a href="checkout.html">checkout</a></li>
                                                             <li><a href="wishlist.html">wishlist</a></li>
                                                             <li><a href="cart.html">cart</a></li>
@@ -52,101 +53,19 @@
                                             </nav>
                                         </div>
                                     </div>
+
+
+
+                                    <!-- <li class="onhover-div user-icon" onclick="openAccount()" id="mobile3">
+                                <img src="images/profile.png" alt="" class="user-img">
+                                <a onclick="openAccount()"> Login</a>
+                            </li> -->
                                 </div>
-                                <div class="header-cart cart-small-device">
-                                    <button class="icon-cart">
-                                        <i class="ti-shopping-cart"></i>
-                                        <span class="count-style">02</span>
-                                        <span class="count-price-add">$295.95</span>
-                                    </button>
-                                    <div class="shopping-cart-content">
-                                        <ul>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h3><a href="#">Gloriori GSX 250 R </a></h3>
-                                                    <span>Price: $275</span>
-                                                    <span>Qty: 01</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h3><a href="#">Demonissi Gori</a></h3>
-                                                    <span>Price: $275</span>
-                                                    <span class="qty">Qty: 01</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                                </div>
-                                            </li>
-                                            <li class="single-shopping-cart">
-                                                <div class="shopping-cart-img">
-                                                    <a href="#"><img alt="" src="assets/img/cart/cart-3.jpg"></a>
-                                                </div>
-                                                <div class="shopping-cart-title">
-                                                    <h3><a href="#">Demonissi Gori</a></h3>
-                                                    <span>Price: $275</span>
-                                                    <span class="qty">Qty: 01</span>
-                                                </div>
-                                                <div class="shopping-cart-delete">
-                                                    <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="shopping-cart-total">
-                                            <h4>total: <span>$550.00</span></h4>
-                                        </div>
-                                        <div class="shopping-cart-btn">
-                                            <a class="btn-style cr-btn" href="#">checkout</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mobile-menu-area col-12">
-                                <div class="mobile-menu">
-                                    <nav id="mobile-menu-active">
-                                        <ul class="menu-overflow">
-                                            <li><a href="index.html">HOME</a></li>
-                                            <li><a href="#">pages</a>
-                                                <ul>
-                                                    <li><a href="about-us.html">about us</a></li>
-                                                    <li><a href="cart.html">cart page</a></li>
-                                                    <li><a href="checkout.html">checkout</a></li>
-                                                    <li><a href="wishlist.html">wishlist</a></li>
-                                                    <li><a href="">login</a></li>
-                                                    <li><a href="contact.html">contact</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">shop</a>
-                                                <ul>
-                                                    <li><a href="shop.html">shop</a></li>
-                                                    <li><a href="product-details.html">product details</a></li>
-                                                    <li><a href="checkout.html">checkout</a></li>
-                                                    <li><a href="wishlist.html">wishlist</a></li>
-                                                    <li><a href="cart.html">cart</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">BLOG</a>
-                                                <ul>
-                                                    <li><a href="blog.html">blog page</a></li>
-                                                    <li><a href="blog-details.html">blog details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html"> Contact us</a></li>
-                                        </ul>
-                                    </nav>							
-                                </div>
-                            </div>
+                             
+                            
                         </div>
                     </div>
+                    
                     <div class="header-cart-wrapper">
                         <div class="header-cart">
                             <button class="icon-cart">
@@ -182,19 +101,7 @@
                                             <a href="#"><i class="icofont icofont-ui-delete"></i></a>
                                         </div>
                                     </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-3.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h3><a href="#">Demonissi Gori</a></h3>
-                                            <span>Price: $275</span>
-                                            <span class="qty">Qty: 01</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                        </div>
-                                    </li>
+                                    
                                 </ul>
                                 <div class="shopping-cart-total">
                                     <h4>total: <span>$550.00</span></h4>

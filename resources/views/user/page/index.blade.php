@@ -5,7 +5,7 @@
 
 <div class="slider-area">
                 <div class="slider-active owl-carousel">
-                <div class="single-slider slider-1" style="background-image: {{ URL::asset('user/img/slider/slider-bg.jpg')}}">
+                    <div class="single-slider slider-1" style="background-image: {{ URL::asset('user/img/slider/slider-bg.jpg')}}">
                         <div class="container">
                             <div class="slider-content slider-animated-1">
                                 <div class="slider-img text-center">
@@ -126,25 +126,31 @@
                         <a class="active" href="#home1" data-toggle="tab" >
                             <h4>NEW BIKES </h4>
                         </a>
-                        <a href="#home2" data-toggle="tab">
+                        <!-- <a href="#home2" data-toggle="tab">
                             <h4> USED BIKES </h4>
-                        </a>
+                        </a> -->
                     </div>
                     <div class="tab-content jump">
                         <div class="tab-pane active" id="home1">
                             <div class="product-slider-active owl-carousel">
+
+                            @foreach($std as $user)
+
+
                                 <div class="product-wrapper-bundle">
+
+
                                     <div class="product-wrapper">
                                         <div class="product-img">
                                             <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-1.jpg')}}" alt="">
+                                                <img src="{{asset('uploads/item/' . $user->image  )}}" alt="">
                                             </a>
                                             <div class="product-item-dec">
                                                 <ul>
-                                                    <li>2018</li>
+                                                    <li>{{$user->name}}</li>
                                                     <li>MANUAL</li>
                                                     <li>PETROL</li>
-                                                    <li>250 CC</li>
+                                                    <li>{{$user->price}}</li>
                                                 </ul>
                                             </div>
                                             <div class="product-action">
@@ -169,261 +175,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-4.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>480 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Demonissi Gori</a></h4>
-                                                    <span>6700 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    
                                 </div>
-                                <div class="product-wrapper-bundle">
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-2.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>200 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Klager GSX 250 R</a></h4>
-                                                    <span>5500 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-5.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>150 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Maxclon ZPE 54</a></h4>
-                                                    <span>3300 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-wrapper-bundle">
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-3.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>150 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Matrio Max</a></h4>
-                                                    <span>4600 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-6.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>250 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Rigoniss Z 1000</a></h4>
-                                                    <span>8000 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-wrapper-bundle">
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-2.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>250 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Klager GSX 250 R</a></h4>
-                                                    <span>5500 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-wrapper">
-                                        <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{ URL::asset('user/img/product/product-5.jpg')}}" alt="">
-                                            </a>
-                                            <div class="product-item-dec">
-                                                <ul>
-                                                    <li>2018</li>
-                                                    <li>MANUAL</li>
-                                                    <li>PETROL</li>
-                                                    <li>350 CC</li>
-                                                </ul>
-                                            </div>
-                                            <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
-                                                    <i class=" ti-shopping-cart"></i>
-                                                </a>
-                                                <a class="action-cart-2" title="Wishlist" href="#">
-                                                    <i class=" ti-heart"></i>
-                                                </a>
-                                                <a class="action-reload" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                    <i class=" ti-zoom-in"></i>
-                                                </a>
-                                            </div>
-                                            <div class="product-content-wrapper">
-                                                <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Maxclon ZPE 54</a></h4>
-                                                    <span>3300 RPM</span>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>$2549</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                
                             </div>
                         </div>
-                        <div class="tab-pane" id="home2">
+                        <!-- <div class="tab-pane" id="home2">
                             <div class="product-slider-active owl-carousel">
                                 <div class="product-wrapper-bundle">
                                     <div class="product-wrapper mb-30">
@@ -714,11 +472,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
-            <div class="latest-product-area pt-205 pb-145 bg-img" style="background-image: url(assets/img/banner/banner-4.jpg)">
+            <div class="latest-product-area pt-205 pb-145 bg-img" style="background-image: {{ URL::asset('user/img/banner/banner-4.jpg')}}">
                 <div class="container-fluid">
                     <div class="latest-product-slider owl-carousel">
                         <div class="single-latest-product slider-animated-2">
@@ -803,7 +561,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-8.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-8.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -827,7 +585,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-9.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-9.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -851,7 +609,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-10.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-10.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -875,7 +633,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-11.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-11.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -899,7 +657,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-7.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-7.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -923,7 +681,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-8.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-8.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -947,7 +705,7 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="product-details.html">
-                                        <img src="assets/img/product/product-9.jpg" alt="">
+                                        <img src="{{ URL::asset('user/img/product/product-9.jpg')}}" alt="">
                                     </a>
                                     <div class="product-action">
                                         <a class="action-plus-2" title="Add To Cart" href="#">
@@ -982,7 +740,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="testimonial-img pl-75">
-                                        <img alt="image" src="assets/img/team/testimonial-1.jpg">
+                                        <img alt="image" src="{{ URL::asset('user/img/team/testimonial-1.jpg')}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-7">
@@ -1002,7 +760,7 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-12 col-12">
                                     <div class="testimonial-img pl-75">
-                                        <img alt="image" src="assets/img/team/testimonial-2.png">
+                                        <img alt="image" src="{{ URL::asset('user/img/team/testimonial-2.png')}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-7 col-md-12 col-12">
@@ -1031,7 +789,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="blog-hm-wrapper mb-40">
                                 <div class="blog-img">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blog-hm-1.jpg" alt="image"></a>
+                                    <a href="blog-details.html"><img src="{{ URL::asset('user/img/blog/blog-hm-1.jpg')}}" alt="image"></a>
                                     <div class="blog-date">
                                         <h4>24 February, 2018</h4>
                                     </div>
@@ -1052,7 +810,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="blog-hm-wrapper mb-40">
                                 <div class="blog-img">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blog-hm-2.jpg" alt="image"></a>
+                                    <a href="blog-details.html"><img src="{{ URL::asset('user/img/blog/blog-hm-2.jpg')}}" alt="image"></a>
                                     <div class="blog-date">
                                         <h4>22 February, 2018</h4>
                                     </div>
@@ -1073,7 +831,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="blog-hm-wrapper mb-40">
                                 <div class="blog-img">
-                                    <a href="blog-details.html"><img src="assets/img/blog/blog-hm-3.jpg" alt="image"></a>
+                                    <a href="blog-details.html"><img src="{{ URL::asset('user/img/blog/blog-hm-3.jpg')}}" alt="image"></a>
                                     <div class="blog-date">
                                         <h4>20 February, 2018</h4>
                                     </div>

@@ -36,3 +36,6 @@ Route::get('index', ['as' => 'user.index','uses' => 'User\UserController@index']
 Route::get('userloginform', ['as' => 'user.userloginform','uses' => 'User\UserController@userloginform']);
 Route::post('userlogin', ['as' => 'user.userlogin','uses' => 'User\UserController@userlogin']);
 Route::post('userregister', ['as' => 'user.userregister','uses' => 'User\UserController@userregister']);
+Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
+
+Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);

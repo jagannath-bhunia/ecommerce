@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller as Controller;
-use App\Item;   
-use App\Catagory; ;
+use App\Models\Item;   
+use App\Models\Catagory; ;
 
 class DashboardController extends Controller
 {
@@ -61,14 +61,16 @@ class DashboardController extends Controller
 
     public function edit($id){
        $user = Item::find($id);
-        return view('admin.page.dashboard.edit', compact('user','id'));
+       $cat=catagory::all();
+        return view('admin.page.dashboard.edit', compact('user','id','cat'));
     }
 
     public function update(Request $request, $id){
 
         $item = Item::find($id);
-
+        $item->cat_id = $request->input('cat_id');
         $item->name = $request->input('name');
+        $item->about = $request->input('about');
         $item->Quantity = $request->input('Quantity');
         $item->price = $request->input('price');
         if($request->hasfile('image')){

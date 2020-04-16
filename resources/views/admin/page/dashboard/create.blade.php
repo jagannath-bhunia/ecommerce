@@ -29,11 +29,11 @@
                                     <form action="{{URL('/store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
-                                    <select name="cat_id" id="" >
-                                    @foreach($cat as $user)
-                                   <option value="{{$user->id}}" name="cat_id" selected="selected">{{$user->cat_name}}</option>
-                                    @endforeach
-                                   </select> 
+                                        <select name="cat_id" id="" >
+                                            @foreach($cat as $user)
+                                                <option value="{{$user->id}}" name="cat_id" selected="selected">{{$user->cat_name}}</option>
+                                            @endforeach
+                                        </select> 
                                     </div>
                                   
                                         

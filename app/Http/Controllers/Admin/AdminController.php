@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller as Controller;
 use Illuminate\Support\Str;
+
+use Validator;
 use App\Models\Admin;
 use DB;
 class AdminController extends Controller
@@ -18,25 +20,36 @@ class AdminController extends Controller
         $request->validate([
             'email'=>'required|email',
             'password'=>'required',
-        ]);
-
-        $email = $request->only('email');
-        $password = $request->only('password');
-
-        $users=Admin::where('email', '=', $email)->where('password', '=', $password)->first();
-        // $user = $request->only('email','password');
-        // // echo "<pre>";
-        // //     print_r($user);
-        // //     exit();
-
-        if ($users) {
-            //echo $user;
+            ]);
+            $user = $request->only('email', 'password');
+            if (Auth::guard('admin')->attempt($user)) {
             return redirect()->route('admin.dashboard')->with('success', 'Login successfully.');
-        }
-        else{
+            }
+            else{
             return redirect('/')->with('error', 'These credentials do not match our records.');
+            }
+    }
 
+    public function register(Request $request){
+       
+        $validator = Validator::make($request->all(), [ 
+            'name' => 'required', 
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => 'required', 
+            
+        ]);
+        if ($validator->fails()) { 
+            return response()->json(['error'=>$validator->errors()], 401);            
         }
+        $input = $request->all(); 
+        $input['password'] = bcrypt($input['password']); 
+        $user = Admin::create($input); 
+
+        $success['name'] =  $user->name;
+        $success['email'] =  $user->email;
+        $success['password'] =  $user->password;
+        
+        return response()->json(['success'=>$success], 200);
     }
 
 }

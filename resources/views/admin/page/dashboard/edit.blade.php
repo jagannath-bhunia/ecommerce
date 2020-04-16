@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Employee</h2>
+                                    <h2 class="title-1">Update Item</h2>
                                     <a href="{{route('admin.dashboard')}}" class="au-btn au-btn-icon au-btn--blue">
                                         Back emp list</a>
                                 </div>
@@ -29,6 +29,14 @@
                                     <form action="{{route('admin.update', $user->id)}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
+                                    <div class="form-group">
+                                        <label for="">Select Catagory</label>
+                                        <select name="cat_id" id="" >
+                                            @foreach($cat as $catagory)
+                                                <option value="{{$catagory->id}}" name="cat_id" selected="selected">{{$catagory->cat_name}}</option>
+                                            @endforeach
+                                        </select> 
+                                    </div>
                                         <div class="form-group">
                                           <label for="">ItemName</label>
                                           <input type="text" name="name" id="" class="form-control" placeholder="Enter user name" value="{{$user->name}}">
@@ -37,7 +45,7 @@
                                         </div>
                                         <div class="form-group">
                                           <label for="">About</label>
-                                          <input type="text" name="about" id="" class="form-control" placeholder="Enter user about" value="{{old('about')}}">
+                                          <input type="text" name="about" id="" class="form-control" placeholder="Enter user about" value="{{$user->about}}">
                                           {!! $errors->first('about', '<small class="text-danger">:message</small>') !!}
 
                                         </div>
