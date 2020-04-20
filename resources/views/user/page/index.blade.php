@@ -4,6 +4,7 @@
 @section("body")
 
 <div class="slider-area">
+
                 <div class="slider-active owl-carousel">
                     <div class="single-slider slider-1" style="background-image: {{ URL::asset('user/img/slider/slider-bg.jpg')}}">
                         <div class="container">
@@ -134,7 +135,7 @@
                         <div class="tab-pane active" id="home1">
                             <div class="product-slider-active owl-carousel">
 
-                            @foreach($std as $user)
+                            @foreach($std as $item)
 
 
                                 <div class="product-wrapper-bundle">
@@ -142,19 +143,19 @@
 
                                     <div class="product-wrapper">
                                         <div class="product-img">
-                                            <a href="product-details.html">
-                                                <img src="{{asset('uploads/item/' . $user->image  )}}" alt="">
+                                            <a href="{{route('admin.productdetails', $item->id)}}">
+                                                <img src="{{asset('uploads/item/' . $item->image  )}}" alt="">
                                             </a>
                                             <div class="product-item-dec">
                                                 <ul>
-                                                    <li>{{$user->name}}</li>
+                                                    <li>{{$item->name}}</li>
                                                     <li>MANUAL</li>
                                                     <li>PETROL</li>
-                                                    <li>{{$user->price}}</li>
+                                                    <li>{{$item->price}}</li>
                                                 </ul>
                                             </div>
                                             <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="#">
+                                                <a class="action-plus-2" title="Add To Cart" href="{{ url('add-to-cart/'.$item->id) }}">
                                                     <i class=" ti-shopping-cart"></i>
                                                 </a>
                                                 <a class="action-cart-2" title="Wishlist" href="#">
@@ -166,7 +167,7 @@
                                             </div>
                                             <div class="product-content-wrapper">
                                                 <div class="product-title-spreed">
-                                                    <h4><a href="product-details.html">Gloriori GSX 250 R</a></h4>
+                                                    <h4><a href="{{route('admin.productdetails', $item->id)}}">Gloriori GSX 250 R</a></h4>
                                                     <span>6600 RPM</span>
                                                 </div>
                                                 <div class="product-price">
@@ -526,7 +527,7 @@
                     </div>
                 </div>
             </div>
-            <div class="accessories-area pt-152 pb-130">
+            <!-- <div class="accessories-area pt-152 pb-130">
                 <div class="container-fluid">
                     <div class="section-title section-fluid text-center mb-60">
                         <h2>ACCESSORIES</h2>
@@ -729,7 +730,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="testimonial-area">
                 <div class="container">
                     <div class="section-title-2 section-title-position">

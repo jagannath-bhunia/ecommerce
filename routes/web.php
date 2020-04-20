@@ -31,11 +31,45 @@ Route::get('addcatagory', ['as' => 'admin.addcatagory','uses' => 'Admin\Dashboar
 Route::post('storecartagory', ['as' => 'admin.storecartagory','uses' => 'Admin\DashboardController@storecartagory']);
 Route::get('showcatagory', ['as' => 'admin.showcatagory','uses' => 'Admin\DashboardController@showcatagory']);
 Route::get('deletecatagory/{id}', ['as' => 'admin.deletecatagory','uses' => 'Admin\DashboardController@deletecatagory']);
+Route::get('logout', ['as' => 'logout','uses' => 'HomeController@logout']);
+
+
 
 Route::get('index', ['as' => 'user.index','uses' => 'User\UserController@index']);
 Route::get('userloginform', ['as' => 'user.userloginform','uses' => 'User\UserController@userloginform']);
 Route::post('userlogin', ['as' => 'user.userlogin','uses' => 'User\UserController@userlogin']);
 Route::post('userregister', ['as' => 'user.userregister','uses' => 'User\UserController@userregister']);
+
+Route::get('userlogout', ['as' => 'userlogout','uses' => 'User\UserController@userlogout']);
+
 Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
 
 Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);
+
+
+
+
+Route::get('cartindex', ['as' => 'user.cartindex','uses' => 'User\CartController@cartindex']);
+Route::get('add-to-cart/{id}', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);
+Route::get('cart', ['as' => 'user.cart','uses' => 'User\CartController@cart']);
+ 
+
+Route::patch('update-cart', ['as' => 'user.update-cart','uses' =>  'User\CartController@update']);
+ 
+Route::delete('remove-from-cart',['as' => 'user.remove-from-cart','uses' => 'User\CartController@remove']);
+
+Route::get('checkout', ['as' => 'user.checkout','uses' => 'User\CartController@checkout']);
+
+
+
+
+
+//Route::get('add-to-cart/{id}', 'CartController@addToCart');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+

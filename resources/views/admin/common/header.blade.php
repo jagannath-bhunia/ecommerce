@@ -127,8 +127,12 @@
                                 <img src="{{ URL::asset('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">BDVFB</a>
+                                <a class="js-acc-btn" href="#">{{Auth::User()->id}}</a>
+                                
+                                <a href="{{route('logout')}}" class="au-btn au-btn-icon au-btn--blue">Logout</a>
+                                
                             </div>
+                            
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">

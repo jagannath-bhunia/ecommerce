@@ -192,7 +192,7 @@
                                                     <div class="product-content-wrapper">
                                                         <div class="product-title-spreed">
                                                             <h4><a href="{{route('admin.productdetails', $items->id)}}">Gloriori GSX 250 R</a></h4>
-                                                            <span>6600 RPM</span>
+                                                            <span>{{$items->about}}</span>
                                                         </div>
                                                         <div class="product-price">
                                                             <span>${{$items->price}}</span>
@@ -213,7 +213,7 @@
                                                     </div>
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore mag aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo it. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                                     <div class="shop-list-cart">
-                                                        <a href="cart.html"><i class="ti-shopping-cart"></i> Add to cart</a>
+                                                        <a href="{{ url('add-to-cart/'.$items->id) }}"><i class="ti-shopping-cart"></i> Add to cart</a>
                                                     </div>
                                                 </div>
                                             </div>

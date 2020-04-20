@@ -53,12 +53,20 @@ class UserController extends Controller
         $user = User::create($input); 
 
         if($user){
-           // return redirect()-> route('user.index')->with('success','success');
-            echo "Register success";
+            return redirect()-> route('user.index')->with('success','success');
+           // echo "Register success";
         }else{
             return redirect('user.userregister')->with('error','Invalid email and password');
         }
     }
+
+
+    public function userlogout(Request $request){
+        Auth::logout();
+       
+        return redirect('   index')->with('success', 'Logout successfully.');
+    }
+
 
     public function shop(){
         $item=Item::all();

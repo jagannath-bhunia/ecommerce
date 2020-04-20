@@ -15,6 +15,20 @@
                     </div>
                 </div>
             </div>
+            @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>	
+                                <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+
+
+                        @if ($message = Session::get('error'))
+                        <div class="alert alert-danger alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>	
+                                <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
             <div class="product-details-area fluid-padding-3 ptb-130">
                 <div class="container-fluid">
                     <div class="row">
@@ -61,6 +75,10 @@
                                     <i class="fa fa-star reting-color"></i>
                                     <i class="fa fa-star reting-color"></i>
                                     <span> ( 01 Customer Review )</span>
+
+                                   
+                                    <input type="hidden" id="item_id" value="{{$item->id}}">
+                                    <input type="hidden" id="user_id" value="">
                                 </div>
                                 <div class="product-price">
                                     <span>${{$item->price}}</span>
@@ -85,10 +103,10 @@
                                         <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
                                     </div>
                                     <div class="quickview-btn-cart">
-                                        <a class="btn-style cr-btn" href="#"><span>add to cart</span></a>
+                                        <a class="btn-style cr-btn" href="{{ url('add-to-cart/'.$item->id) }}" ><span>add to cart</span></a>
                                     </div>
                                     <div class="quickview-btn-wishlist">
-                                        <a class="btn-hover cr-btn" href="#"><span><i class="icofont icofont-heart-alt"></i></span></a>
+                                        <a class="btn-hover cr-btn" href="{{route('user.checkout')}}"><span><i class="icofont icofont-heart-alt"></i></span></a>
                                     </div>
                                 </div>
                                 <!-- <div class="product-categories">
@@ -135,3 +153,30 @@
             </div>
 
 @endsection
+<!-- 
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+</script>
+<script>
+ $( document ).ready(function() {
+    alert("b");
+    console.log( "ready!" );
+  });
+$( document ).ready(function() {
+$('#ok1').click(function()
+
+
+{
+
+//alert("b");
+
+var item_id=$("#item_id").val();
+var user_id=$("#user_id").val();
+
+alert (item_id);
+});
+});
+
+</script> -->

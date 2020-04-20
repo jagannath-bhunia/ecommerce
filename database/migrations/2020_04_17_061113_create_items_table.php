@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cat_id')->unsigned();
+            $table->integer('cat_id');
             
             $table->string('name');
             $table->string('about');
@@ -25,10 +25,7 @@ class CreateItemsTable extends Migration
             $table->string('image');
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('cat_id')
-            ->references('id')
-            ->on('catagories')
-            ->onDelete('cascade');
+           
         });
     }
 

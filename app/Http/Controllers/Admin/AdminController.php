@@ -23,6 +23,10 @@ class AdminController extends Controller
             ]);
             $user = $request->only('email', 'password');
             if (Auth::guard('admin')->attempt($user)) {
+
+        // echo "<pre>";
+        // print_r(Auth::user());
+        // exit();
             return redirect()->route('admin.dashboard')->with('success', 'Login successfully.');
             }
             else{

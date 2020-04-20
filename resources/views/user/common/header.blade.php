@@ -68,48 +68,68 @@
                     
                     <div class="header-cart-wrapper">
                         <div class="header-cart">
-                            <button class="icon-cart">
-                                <i class="ti-shopping-cart"></i>
-                                <span class="count-style">02</span>
-                                <span class="count-price-add">$295.95</span>
-                            </button>
-                            <div class="shopping-cart-content">
-                                <ul>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h3><a href="#">Gloriori GSX 250 R </a></h3>
-                                            <span>Price: $275</span>
-                                            <span>Qty: 01</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                        </div>
-                                    </li>
-                                    <li class="single-shopping-cart">
-                                        <div class="shopping-cart-img">
-                                            <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                                        </div>
-                                        <div class="shopping-cart-title">
-                                            <h3><a href="#">Demonissi Gori</a></h3>
-                                            <span>Price: $275</span>
-                                            <span class="qty">Qty: 01</span>
-                                        </div>
-                                        <div class="shopping-cart-delete">
-                                            <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                        </div>
-                                    </li>
-                                    
-                                </ul>
-                                <div class="shopping-cart-total">
-                                    <h4>total: <span>$550.00</span></h4>
-                                </div>
-                                <div class="shopping-cart-btn">
-                                    <a class="btn-style cr-btn" href="#">checkout</a>
+                        <div class="container">
+ 
+ <div class="row">
+     <div class="col-lg-12 col-sm-12 col-12 main-section">
+         <div class="dropdown">
+             <button type="button" class="btn btn-info" data-toggle="dropdown">
+                 <i class="fa fa-shopping-cart" aria-hidden="true"></i> Cart <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+             </button>
+             <div class="dropdown-menu">
+                 <div class="row total-header-section">
+                     <div class="col-lg-6 col-sm-6 col-6">
+                         <i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="badge badge-pill badge-danger">{{ count((array) session('cart')) }}</span>
+                     </div>
+
+                     <?php $total = 0 ?>
+                     @foreach((array) session('cart') as $id => $details)
+                         <?php $total += $details['price'] * $details['quantity'] ?>
+                     @endforeach
+
+                     <div class="col-lg-6 col-sm-6 col-6 total-section text-right">
+                         <p>Total: <span class="text-info">$ {{ $total }}</span></p>
+                     </div>
+                 </div>
+
+                 @if(session('cart'))
+                     @foreach(session('cart') as $id => $details)
+                         <div class="row cart-detail">
+                             <!-- <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                                 <img src="{{asset('uploads/item/' . $details['image']  )}}" />
+                             </div> -->
+                             <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                                 <p></p>
+                                 <span class="price text-info"> ${{ $details['price'] }}</span> <span class="count"> Quantity:{{ $details['quantity'] }}</span>
+                             </div>
+                         </div>
+                     @endforeach
+                 @endif
+                 <div class="row">
+                     <div class="col-lg-12 col-sm-12 col-12 text-center checkout">
+                         <a href="{{ url('cartindex') }}" class="btn btn-primary btn-block">View all</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+
+
+
+
+<div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                   
+                                    <a href="{{route('userlogout')}}" class="au-btn au-btn-icon au-btn--blue">
+                                        logout</a>
                                 </div>
                             </div>
+                        </div>
+
+
                         </div>
                     </div>
                 </div>
