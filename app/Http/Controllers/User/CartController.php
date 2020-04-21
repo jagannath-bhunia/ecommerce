@@ -16,73 +16,73 @@ class CartController extends Controller
     
     public function cartindex()
     {
-        $products = Item::all();
+
+        $item = DB::table('carts')
+            ->join('items', 'carts.item_id', '=', 'items.id')->where('carts.user_id', '=', Auth::user()->id)
+            
+            ->get();
  
-        return view('user.page.cart', compact('products'));
+        return view('user.page.cart', compact('item'));
     }
     public function cart()
     {
         return view('user.page.cart');
     }
-    public function addToCart($id)
+    public function addToCart( Request $request)
     {
-        $product = Item::find($id);
+        $qty = $request->qty;
+        $product = Item::find($request->item_id);
+        $item_id = $product->id;
+        $userid = Auth::User()->id;
 
-        // echo "<pre>";
-        // print_r($product->id);
-        // exit();
-
-        if(!$product) {
-
-            abort(404);
-
+        //if cart is empty then this the first product
+        $a=DB::table('carts')->where('item_id',$item_id)->where('user_id',$userid)->count();
+        if($a==0){
+            $item = new Cart;
+            $item->item_id = $item_id;
+            $item->user_id = $userid;
+            $item->qty = $qty;
+            $item->save();
+            //return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }else{
+            DB::table('carts')->where('item_id',$item_id)->where('user_id',$userid)->update(['qty' => $qty]);
+           
         }
 
-        $cart = session()->get('cart');
+        
 
-        // if cart is empty then this the first product
-        if(!$cart) {
-
-            $cart = [
-                    $id => [
+        // $cart = session()->get('cart');
+        // // if cart is empty then this the first product
+        // if(!$cart) {
+        //     $cart = [
+        //             $id => [
                         
-                        "name" => $product->name,
-                        "quantity" => 1,
-                        "price" => $product->price,
-                        "image" => $product->image,
-                        "item_id" => $product->id,
-                    ]
-            ];
-
-            session()->put('cart', $cart);
-
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-        }
-
+        //                 "name" => $product->name,
+        //                 "quantity" => 1,
+        //                 "price" => $product->price,
+        //                 "image" => $product->image,
+        //                 "item_id" => $product->id,
+        //             ]
+        //     ];
+        //     session()->put('cart', $cart);
+        //     return redirect()->back()->with('success', 'Product added to cart successfully!');
+        // }
         // if cart not empty then check if this product exist then increment quantity
-        if(isset($cart[$id])) {
-
-            $cart[$id]['quantity']++;
-
-            session()->put('cart', $cart);
-
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-
-        }
-
-        // if item not exist in cart then add to cart with quantity = 1
-        $cart[$id] = [
-            
-            "name" => $product->name,
-            "quantity" => 1,
-            "price" => $product->price,
-            "image" => $product->image,
-            "item_id" => $product->id,
-        ];
-
-        session()->put('cart', $cart);
-
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        // if(isset($cart[$id])) {
+        //     $cart[$id]['quantity']++;
+        //     session()->put('cart', $cart);
+        //     return redirect()->back()->with('success', 'Product added to cart successfully!');
+        // }
+        // // if item not exist in cart then add to cart with quantity = 1
+        // $cart[$id] = [      
+        //     "name" => $product->name,
+        //     "quantity" => 1,
+        //     "price" => $product->price,
+        //     "image" => $product->image,
+        //     "item_id" => $product->id,
+        // ];
+        // session()->put('cart', $cart);
+        // return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
 
@@ -118,32 +118,17 @@ class CartController extends Controller
     }
 
 
-    public function checkout(Request $request){
-        $cart = session()->get('cart');
+    public function qty(){
         $userid = Auth::User()->id;
-       
+        $count = DB::table('carts')->where('user_id',$userid)->count();
+        echo $count;
+    }
+
+
+    public function checkout(Request $request){
         
-        foreach ($cart as $cart1){
-            //echo $cat1['item_id'];
-            $item = new Cart;
-            $item->item_id = $cart1['item_id'];
-            $item->user_id = $userid;
-            $item->save();
-        }
-
-
-        // echo "<pre>";
-        // print_r($item_id);
-        //  exit();
-    
-        if($item){
             return view('user.page.checkout');
-            //echo "add";
-            //return redirect()-> route('admin.check')->with('success','success');
-        }else{
-            echo "error";
-            //return redirect('admin.store')->with('error','unsuccess');
-        }
+    
          
     }
 }

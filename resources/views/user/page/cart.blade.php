@@ -66,38 +66,39 @@
  
         <?php $total = 0 ?>
  
-        @if(session('cart'))
-            @foreach(session('cart') as $id => $details)
+        
+            @foreach($item as  $details)
  
-                <?php $total += $details['price'] * $details['quantity'] ?>
+                <?php $total += $details->price * $details->qty ?>
  
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{asset('uploads/item/' . $details['image']  )}}" width="100" height="100" class="img-responsive"/></div>
+                            <div class="col-sm-3 hidden-xs"><img src="{{asset('uploads/item/' . $details->image  )}}" width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['item_id'] }}</h4>
+                                <h4 class="nomargin">{{ $details->item_id }}</h4>
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price">${{ $details['price'] }}</td>
+                    <td data-th="Price">${{ $details->price}}</td>
                     <td data-th="Quantity">
-                        <input type="number" value="{{ $details['quantity'] }}" class="form-control quantity" />
+                        <input type="number" value="{{ $details->qty }}" class="form-control quantity" />
                     </td>
-                    <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
+                    <td data-th="Subtotal" class="text-center">${{ $details->price * $details->qty }}</td>
                     <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm update-cart" data-id="{{ $id }}"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}"><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-info btn-sm update-cart"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-danger btn-sm remove-from-cart" ><i class="fa fa-trash-o"></i></button>
                     </td>
                 </tr>
 
             @endforeach
-        @endif
+      
  
         </tbody>
         <tfoot>
         <tr class="visible-xs">
-            <!-- <td class=" text-center"><strong>Total {{ $total }}</strong></td> -->
+            
+      
         </tr>
         <tr>
             <td ></td>

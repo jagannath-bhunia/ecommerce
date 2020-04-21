@@ -45,14 +45,10 @@ Route::get('userlogout', ['as' => 'userlogout','uses' => 'User\UserController@us
 Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
 
 Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);
-
-
-
-
+Route::get('add-to-cart', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);
 Route::get('cartindex', ['as' => 'user.cartindex','uses' => 'User\CartController@cartindex']);
-Route::get('add-to-cart/{id}', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);
 Route::get('cart', ['as' => 'user.cart','uses' => 'User\CartController@cart']);
- 
+Route::post('qty', ['as' => 'user.qty','uses' => 'User\CartController@qty']);
 
 Route::patch('update-cart', ['as' => 'user.update-cart','uses' =>  'User\CartController@update']);
  

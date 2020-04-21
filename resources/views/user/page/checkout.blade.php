@@ -6,12 +6,12 @@
 <div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
-            <h2>checkout page</h2>
+            <h2 style="color:black">checkout page</h2>
             <ul>
                 <li>
-                    <a href="#">home</a>
+                    <a href="#" style="color:black">home</a>
                 </li>
-                <li>checkout page</li>
+                <li style="color:black">checkout page</li>
             </ul>
         </div>
     </div>

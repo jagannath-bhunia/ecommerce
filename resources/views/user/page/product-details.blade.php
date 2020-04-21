@@ -38,8 +38,8 @@
                                     <div class="product-details-large tab-content">
                                         <div class="tab-pane active" id="pro-details1">
                                             <div class="easyzoom easyzoom--overlay">
-                                                <a href="{{ URL::asset('user/img/product-details/bl1.jpg')}}">
-                                                    <img src="{{asset('uploads/item/' . $item->image  )}}" alt="">
+                                                <a href="">
+                                                    <img src="{{asset('uploads/item/' . $item['image']  )}}" alt="">
                                                 </a>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="product-details-content">
-                                <h2>{{$item->name}}</h2>
+                                <h2>{{$item['name']}}</h2>
                                 <div class="quick-view-rating">
                                     <i class="fa fa-star reting-color"></i>
                                     <i class="fa fa-star reting-color"></i>
@@ -77,11 +77,11 @@
                                     <span> ( 01 Customer Review )</span>
 
                                    
-                                    <input type="hidden" id="item_id" value="{{$item->id}}">
-                                    <input type="hidden" id="user_id" value="">
+                                    <!-- <input type="hidden" id="item_id" value="{{$item['id']}}">
+                                    <input type="hidden" id="user_id" value=""> -->
                                 </div>
                                 <div class="product-price">
-                                    <span>${{$item->price}}</span>
+                                    <span>${{$item['price']}}</span>
                                 </div>
                                 <div class="product-overview">
                                     <h5 class="pd-sub-title">Product Overview</h5>
@@ -99,11 +99,16 @@
                                     </ul>
                                 </div>
                                 <div class="quickview-plus-minus">
-                                    <div class="cart-plus-minus">
-                                        <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                    </div>
+                                <figure>
+                                        <figcaption>Quantity</figcaption>
+                                        <div class="form-group--number">
+                                            <button class="up"><i class="fa fa-plus"></i></button>
+                                            <button class="down"><i class="fa fa-minus"></i></button>
+                                            <input class="form-control gst1" id="value" type="text" value="1" placeholder="1">
+                                        </div>
+                                    </figure>
                                     <div class="quickview-btn-cart">
-                                        <a class="btn-style cr-btn" href="{{ url('add-to-cart/'.$item->id) }}" ><span>add to cart</span></a>
+                                        <a class="btn-style cr-btn" id="addtocart"><span>add to cart</span></a>
                                     </div>
                                     <div class="quickview-btn-wishlist">
                                         <a class="btn-hover cr-btn" href="{{route('user.checkout')}}"><span><i class="icofont icofont-heart-alt"></i></span></a>
@@ -150,33 +155,71 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="item_id" id="item_id" value="{{$item['id']}}">
+                <input type="hidden" id="_token" value="<?php echo csrf_token();?>">
             </div>
 
-@endsection
-<!-- 
 <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous">
 </script>
 <script>
- $( document ).ready(function() {
-    alert("b");
-    console.log( "ready!" );
-  });
-$( document ).ready(function() {
-$('#ok1').click(function()
+$(document).ready(function(){
+    // alert("abc");
+     $(".up").click(function(){
+        
+        //alert("abc");
+        var value1=$("#value").val();
+
+    var value2=Number(value1)+1;
+    //alert(value2);
+
+    $('#value').val(value2);
+
+    });
 
 
-{
 
-//alert("b");
+    $(".down").click(function(){
 
-var item_id=$("#item_id").val();
-var user_id=$("#user_id").val();
+    var value1=$("#value").val();
+    var value2=Number(value1)-1;
+    if(value2<=0)
+    {
+    $('.value').val(1);
+    }
+    else{
+    $('#value').val(value2);
 
-alert (item_id);
+    }
+    });
 });
+
+
+
+
+$('#addtocart').click(function(){
+    //alert("a");
+    var item_id=$("#item_id").val();
+    var qty=$("#value").val();
+    var token=$("#_token").val();
+    var url="{{ route('user.add-to-cart') }}";
+    //alert(token);
+    $.ajax({
+    url:url,
+    type:'GET',
+    data:{qty:qty,_token:token,item_id:item_id},
+   
+        success:function(response)
+        {
+            abc();
+        }
+    });
 });
 
-</script> -->
+
+
+
+</script>
+@endsection
