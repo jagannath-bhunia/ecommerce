@@ -24,33 +24,33 @@
  
 
 <div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
-                <div class="container-fluid">
-                    <div class="breadcrumb-content text-center">
-                        <h2 style="color:black">Cart page</h2>
-                        <ul>
-                            <li>
-                                <a href="#"style="color:black" >home</a>
-                            </li>
-                            <li style="color:black" >Cart page</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <div class="container-fluid">
+        <div class="breadcrumb-content text-center">
+            <h2 style="color:black">Cart page</h2>
+            <ul>
+                <li>
+                    <a href="#"style="color:black" >home</a>
+                </li>
+                <li style="color:black" >Cart page</li>
+            </ul>
+        </div>
+    </div>
+</div>
 
-            @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>	
-                                <strong>{{ $message }}</strong>
-                        </div>
-                        @endif
+@if ($message = Session::get('success'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>	
+        <strong>{{ $message }}</strong>
+</div>
+@endif
 
 
-                        @if ($message = Session::get('error'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>	
-                                <strong>{{ $message }}</strong>
-                        </div>
-                        @endif
+@if ($message = Session::get('error'))
+<div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>	
+        <strong>{{ $message }}</strong>
+</div>
+@endif
 <div class="container page">
 <table id="cart" class="table table-hover table-condensed">
         <thead>
@@ -63,55 +63,45 @@
         </tr>
         </thead>
         <tbody>
- 
         <?php $total = 0 ?>
- 
-        
             @foreach($item as  $details)
- 
                 <?php $total += $details->price * $details->qty ?>
- 
                 <tr>
                     <td data-th="Product">
                         <div class="row">
                             <div class="col-sm-3 hidden-xs"><img src="{{asset('uploads/item/' . $details->image  )}}" width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details->item_id }}</h4>
+                                <h4 class="nomargin">{{ $details->name }}</h4>
                             </div>
                         </div>
                     </td>
                     <td data-th="Price">${{ $details->price}}</td>
                     <td data-th="Quantity">
-                        <input type="number" value="{{ $details->qty }}" class="form-control quantity" />
+                        <input type="number" id="qty-{{$details->item_id}}" value="{{ $details->qty }}" class="form-control quantity" />
                     </td>
                     <td data-th="Subtotal" class="text-center">${{ $details->price * $details->qty }}</td>
                     <td class="actions" data-th="">
-                        <button class="btn btn-info btn-sm update-cart"><i class="fa fa-refresh"></i></button>
-                        <button class="btn btn-danger btn-sm remove-from-cart" ><i class="fa fa-trash-o"></i></button>
+                        <button class="btn btn-info btn-sm update-cart" onclick="update({{$details->item_id}})"><i class="fa fa-refresh"></i></button>
+                        <button class="btn btn-danger btn-sm remove-from-cart" onclick="cartdelete({{$details->item_id}})"><i class="fa fa-trash-o"></i></button>
                     </td>
                 </tr>
-
+                <input type="hidden" name="item_id" id="item_id" value="{{ $details->item_id}}">
+                <input type="hidden" id="_token" value="<?php echo csrf_token();?>">
+               
+                <input type="hidden" name="cart_id" id="cart_id" value="{{ $details->cart_id}}">
             @endforeach
-      
- 
+           
         </tbody>
         <tfoot>
         <tr class="visible-xs">
-            
-      
         </tr>
         <tr>
             <td ></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Total ${{ $total }}</strong></td>
         </tr>
-        </tfoot>
-
-
-        
-    </table>
-
-   
+        </tfoot>       
+    </table>  
     <div class="row">
         <div class="col-md-12">
             <div class="cart-shiping-update">
@@ -130,46 +120,56 @@
             </div>
         </div>
     </div>
-  
- 
 </div>
- 
-<script type="text/javascript">
- 
-        $(".update-cart").click(function (e) {
-           e.preventDefault();
- 
-           var ele = $(this);
- 
-            $.ajax({
-               url: '{{ url('update-cart') }}',
-               method: "patch",
-               data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id"), quantity: ele.parents("tr").find(".quantity").val()},
-               success: function (response) {
-                   window.location.reload();
-               }
-            });
-        });
- 
-        $(".remove-from-cart").click(function (e) {
-            e.preventDefault();
- 
-            var ele = $(this);
- 
-            if(confirm("Are you sure")) {
-                $.ajax({
-                    url: '{{ url('remove-from-cart') }}',
-                    method: "DELETE",
-                    data: {_token: '{{ csrf_token() }}', id: ele.attr("data-id")},
-                    success: function (response) {
-                        //alert(responce);
-                         window.location.reload();
-                    }
-                });
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+</script>
+<script>
+    function update($id){
+       // alert($id);
+        var qty=$('#qty-'+$id).val();
+        
+        var token=$("#_token").val();
+        var url='{{ url('update-cart') }}';
+        $.ajax({
+        url:url,
+        type:'PATCH',
+        data:{qty:qty,_token:token,item_id:$id},
+    
+            success:function(response)
+            {
+            //alert("add");
+            window.location.reload();
             }
         });
- 
-    </script>
+
+    }
+
+    function cartdelete($id){
+       // alert($id);
+        var cart_id=$("#cart_id").val();
+        var token=$("#_token").val();
+        var url='{{ url('remove-from-cart') }}';
+        if(confirm("Are you sure")) {
+            $.ajax({
+            url:url,
+            type:'DELETE',
+            data:{cart_id:cart_id,_token:token,item_id:$id},
+        
+                success:function(response)
+                {
+                abc();
+                window.location.reload();
+                }
+            });
+        }
+    }
+
+
+</script>
+
  <style>
     .main-section{
         background-color: #F8F8F8;

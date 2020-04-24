@@ -155,7 +155,7 @@
                                                 </ul>
                                             </div>
                                             <div class="product-action">
-                                                <a class="action-plus-2" title="Add To Cart" href="{{ url('add-to-cart/'.$item->id) }}">
+                                                <a class="action-plus-2" title="Add To Cart" onclick="add({{$item->id}})">
                                                     <i class=" ti-shopping-cart"></i>
                                                 </a>
                                                 <a class="action-cart-2" title="Wishlist" href="#">
@@ -176,7 +176,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+                                    <input type="hidden" id="_token" value="<?php echo csrf_token();?>">
                                 </div>
                                 @endforeach
                                 
@@ -853,4 +853,36 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous">
+</script>
+<script>
+  
+    function add($id){
+        var token=$("#_token").val();
+        var url="{{ route('user.add-to-cart') }}";
+
+        $.ajax({
+        url:url,
+        type:'GET',
+        data:{qty:1,_token:token,item_id:$id},
+   
+        success:function(response)
+        {
+            abc();
+        }
+    });
+
+    }
+
+
+
+</script>
+
 @endsection
+

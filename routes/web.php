@@ -56,6 +56,7 @@ Route::delete('remove-from-cart',['as' => 'user.remove-from-cart','uses' => 'Use
 
 Route::get('checkout', ['as' => 'user.checkout','uses' => 'User\CartController@checkout']);
 
+Route::post('book', ['as' => 'user.book','uses' => 'User\CartController@book']);
 
 
 
