@@ -70,15 +70,15 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-12 col-12">
                             
-                            <form action="#">
-                            @csrf
+                            <form action="{{ route('user.book') }}" method="post">
+                                @csrf
                                 <div class="checkbox-form">						
                                     <h3>Billing Details</h3>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="country-select">
                                                 <label>Country <span class="required">*</span></label>
-                                                <select id="country">
+                                                <select id="country" name="country">
                                                   <option name="country" id="country" value="India">India</option>
                                                   {!! $errors->first('country', '<small class="text-danger">:message</small>') !!}
 
@@ -251,7 +251,7 @@
                                         </div>
                                     </div>													 -->
                                 </div>
-                            </form>
+                            
                         </div>	
                         <div class="col-lg-6 col-md-12 col-12">
                             <div class="your-order">
@@ -289,7 +289,7 @@
                                             </tr> -->
                                             <tr class="order-total">
                                                 <th>Order Total</th>
-                                                <td><strong><span class="amount" id="total">${{$total}}</span></strong>
+                                                <td><strong><span class="amount" name="total" id="total">${{$total}}</span></strong>
                                                 </td>
                                             </tr>								
                                         </tfoot>
@@ -332,9 +332,9 @@
                                             <div class="col-md-12">
                                             <div class="country-select">
                                                 <label>Payment <span class="required">*</span></label>
-                                                <select id="payment">
-                                                  <option name="payment" id="payment" value="cash">cash</option>
-                                                   <option name="payment" id="payment" value="online">online</option>
+                                                <select id="payment" name="payment">
+                                                  <option name="payment" name="payment" id="payment" value="cash">cash</option>
+                                                   <option name="payment" name="payment" id="payment" value="online">online</option>
                                                   <!--<option value="mercedes">Afghanistan</option>
                                                   <option value="audi">Ghana</option>
                                                   <option value="audi2">Albania</option>
@@ -346,18 +346,19 @@
                                         </div>
                                         </div>
                                         <div class="order-button-payment">
-                                            <input type="submit" value="Place order" onclick="book()" />
+                                            <input type="submit" value="Place order" />
                                         </div>								
                                     </div>
                                 </div>
                             </div>
                         </div>
+                 </form>
                     </div>
                 </div>
             </div>
             <!-- checkout-area end -->
 
-
+<!-- 
 <script
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -392,13 +393,15 @@ crossorigin="anonymous">
         
             success:function(response)
             {
-                abc();
-                window.location.reload();
+                
+                
+                // abc();
+                window.location.href='https://securegw-stage.paytm.in/theia/processTransaction';
             }
         });
 
     }
 
-</script>
+</script> -->
 
 @endsection

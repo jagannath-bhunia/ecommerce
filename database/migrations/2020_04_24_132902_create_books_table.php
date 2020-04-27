@@ -16,6 +16,10 @@ class CreateBooksTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('book_id');
             $table->integer('user_id');
+            $table->string('order_id');
+            $table->string('status');
+            $table->string('transaction_id');
+            $table->string('total');
             $table->string('country');
             $table->string('f_name');
             $table->string('l_name');
@@ -26,8 +30,6 @@ class CreateBooksTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('payment');
-            $table->string('total');
-
             $table->timestamps();
         });
     }

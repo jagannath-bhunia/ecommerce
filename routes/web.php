@@ -39,26 +39,18 @@ Route::get('index', ['as' => 'user.index','uses' => 'User\UserController@index']
 Route::get('userloginform', ['as' => 'user.userloginform','uses' => 'User\UserController@userloginform']);
 Route::post('userlogin', ['as' => 'user.userlogin','uses' => 'User\UserController@userlogin']);
 Route::post('userregister', ['as' => 'user.userregister','uses' => 'User\UserController@userregister']);
-
 Route::get('userlogout', ['as' => 'userlogout','uses' => 'User\UserController@userlogout']);
-
 Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
-
 Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);
 Route::get('add-to-cart', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);
 Route::get('cartindex', ['as' => 'user.cartindex','uses' => 'User\CartController@cartindex']);
 Route::get('cart', ['as' => 'user.cart','uses' => 'User\CartController@cart']);
 Route::post('qty', ['as' => 'user.qty','uses' => 'User\CartController@qty']);
-
-Route::patch('update-cart', ['as' => 'user.update-cart','uses' =>  'User\CartController@update']);
- 
+Route::patch('update-cart', ['as' => 'user.update-cart','uses' =>  'User\CartController@update']); 
 Route::delete('remove-from-cart',['as' => 'user.remove-from-cart','uses' => 'User\CartController@remove']);
-
 Route::get('checkout', ['as' => 'user.checkout','uses' => 'User\CartController@checkout']);
-
 Route::post('book', ['as' => 'user.book','uses' => 'User\CartController@book']);
-
-
+Route::post('/paytmcallback', 'User\CartController@paytmcallback');
 
 
 //Route::get('add-to-cart/{id}', 'CartController@addToCart');
