@@ -71,26 +71,31 @@
                                 <div class="contact-message-wrapper">
                                     <h4 class="contact-title">GET IN TOUCH</h4>
                                     <div class="contact-message">
-                                        <form id="contact-form" action="#" method="post">
+                                        <form  action="{{URL('/message')}}" method="post">
+                                        @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <div class="contact-form-style mb-20">
-                                                        <input name="name" placeholder="Full Name" type="text">
+                                                        <input name="name" placeholder="Full Name" type="text"  value="{{old('name')}}">
+                                                        {!! $errors->first('name', '<small class="text-danger">:message</small>') !!}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <div class="contact-form-style mb-20">
-                                                        <input name="email" placeholder="Eail Address" type="email">
+                                                        <input name="email" placeholder="Eail Address" type="email"  value="{{old('email')}}">
+                                                        {!! $errors->first('email', '<small class="text-danger">:message</small>') !!}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="contact-form-style mb-20">
-                                                        <input name="subject" placeholder="Subject" type="text">
+                                                        <input name="subject" placeholder="Subject" type="text"  value="{{old('subject')}}">
+                                                        {!! $errors->first('subject', '<small class="text-danger">:message</small>') !!}
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-12">
                                                     <div class="contact-form-style">
-                                                        <textarea name="message" placeholder="Massage"></textarea>
+                                                        <textarea name="message" placeholder="Massage"  value="{{old('message')}}"></textarea>
+                                                        {!! $errors->first('message', '<small class="text-danger">:message</small>') !!}<br>
                                                         <button class="submit cr-btn btn-style" type="submit"><span>SEND MASSAGE</span></button>
                                                     </div>
                                                 </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller as Controller;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Item;   
+use App\Models\Message;   
 class UserController extends Controller
 {
     public function index(){
@@ -82,5 +83,35 @@ class UserController extends Controller
     }
     public function contuctus(){
         return view('user.page.contuctus');   
+    }
+   
+
+    public function message(Request $request){
+        
+        $request->validate([
+            
+            'name'=>'required',
+            'email'=>'required',
+            'subject'=>'required',
+            'message'=>'required',
+            
+        ]);
+        $from_data = array(
+            'user_id'=> Auth::User()->id,
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'subject'=>$request->subject,
+            'message'=>$request->message,
+        );
+           
+        // echo "<pre>";
+        // print_r($from_data);
+        // exit();
+        $add = Message::create($from_data);
+        if($add){
+            return redirect()-> route('user.index')->with('success','Message send success');
+        }else{
+            return redirect('user.message')->with('error','unsuccess');
+        }
     }
 }

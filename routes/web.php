@@ -43,6 +43,7 @@ Route::get('userlogout', ['as' => 'userlogout','uses' => 'User\UserController@us
 Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
 Route::get('aboutus', ['as' => 'user.aboutus','uses' => 'User\UserController@aboutus']);
 Route::get('contuctus', ['as' => 'user.contuctus','uses' => 'User\UserController@contuctus']);
+Route::post('message', ['as' => 'user.message','uses' => 'User\UserController@message']);
 
 Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);
 Route::get('add-to-cart', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);

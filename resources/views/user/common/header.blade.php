@@ -34,7 +34,7 @@
                                 </li>
                                 <li><a href="#">pages</a>
                                     <ul>
-                                        <li><a href="{{route('user.aboutus')}}l">about us</a></li>
+                                        <li><a href="{{route('user.aboutus')}}">about us</a></li>
                                         <li><a href="{{ url('cartindex') }}">cart page</a></li>
                                         <li><a href="{{route('user.checkout')}}">checkout</a></li>
                                         <!-- <li><a href="wishlist.html">wishlist</a></li> -->
