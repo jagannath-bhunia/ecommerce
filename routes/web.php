@@ -41,6 +41,9 @@ Route::post('userlogin', ['as' => 'user.userlogin','uses' => 'User\UserControlle
 Route::post('userregister', ['as' => 'user.userregister','uses' => 'User\UserController@userregister']);
 Route::get('userlogout', ['as' => 'userlogout','uses' => 'User\UserController@userlogout']);
 Route::get('shop', ['as' => 'user.shop','uses' => 'User\UserController@shop']);
+Route::get('aboutus', ['as' => 'user.aboutus','uses' => 'User\UserController@aboutus']);
+Route::get('contuctus', ['as' => 'user.contuctus','uses' => 'User\UserController@contuctus']);
+
 Route::get('productdetails/{id}', ['as' => 'admin.productdetails','uses' => 'User\UserController@productdetails']);
 Route::get('add-to-cart', ['as' => 'user.add-to-cart','uses' => 'User\CartController@addToCart']);
 Route::get('cartindex', ['as' => 'user.cartindex','uses' => 'User\CartController@cartindex']);
@@ -50,6 +53,7 @@ Route::patch('update-cart', ['as' => 'user.update-cart','uses' =>  'User\CartCon
 Route::delete('remove-from-cart',['as' => 'user.remove-from-cart','uses' => 'User\CartController@remove']);
 Route::get('checkout', ['as' => 'user.checkout','uses' => 'User\CartController@checkout']);
 Route::post('book', ['as' => 'user.book','uses' => 'User\CartController@book']);
+
 Route::post('/paytmcallback', 'User\CartController@paytmcallback');
 
 

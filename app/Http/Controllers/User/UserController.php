@@ -25,8 +25,7 @@ class UserController extends Controller
             'email'=>'required|email',
             'password'=>'required',
         ]);
-        $user = $request->only('email', 'password');
-        
+        $user = $request->only('email', 'password');   
         if (Auth::guard('user')->attempt($user)) {
             return redirect()->route('user.index')->with('success', 'Login successfully.');
             //echo "Login success";
@@ -56,7 +55,7 @@ class UserController extends Controller
             return redirect()-> route('user.index')->with('success','success');
            // echo "Register success";
         }else{
-            return redirect('user.userregister')->with('error','Invalid email and password');
+            return redirect('userregister')->with('error','Invalid email and password');
         }
     }
 
@@ -64,7 +63,7 @@ class UserController extends Controller
     public function userlogout(Request $request){
         Auth::logout();
        
-        return redirect('   index')->with('success', 'Logout successfully.');
+        return redirect('userloginform')->with('success', 'Logout successfully.');
     }
 
 
@@ -77,5 +76,11 @@ class UserController extends Controller
     {
         $item=Item::find($id);
         return view('user.page.product-details', compact('item'));
+    }
+    public function aboutus(){
+        return view('user.page.aboutus');   
+    }
+    public function contuctus(){
+        return view('user.page.contuctus');   
     }
 }

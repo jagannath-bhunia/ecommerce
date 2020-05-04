@@ -3,7 +3,7 @@
 @section("body")              
 <div class="login-content">
     <h2>LOGIN</h2>
-    
+    @include("admin.common.message")
     <div class="login-form">
         <form action="{{url('login')}}" method="post">
         {{csrf_field()}}
@@ -27,4 +27,12 @@
         </form> 
     </div>
 </div>
+<SCript>
+    $("document").ready(function(){
+    setTimeout(function(){
+       $("div.alert").remove();
+    }, 5000 ); // 5 secs
+
+});
+</SCript>
 @endsection

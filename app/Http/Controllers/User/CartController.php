@@ -182,7 +182,7 @@ class CartController extends Controller
 
 
     public function paytmcallback(Request $request){
-        // return $request;
+         //return $request;
         $order_id=$request['ORDERID'];
         // $user_id=auth()->id();
         // $user=User::find($user_id);
@@ -191,12 +191,7 @@ class CartController extends Controller
             $transaction_id=$request['TXNID'];
             $id=$request['ORDERID'];
             $status='complete';
-            //$order=Book::where('order_id',$id)->update('status','=',$status)->update('transaction_id','=',$transaction_id);
-            $order=DB::table('books')->where('order_id',$id)->update(['status' => "complete"],['transaction_id'=>$transaction_id]);
-            //  $order->status='complete';
-            // // // $order->payment_received='yes';
-            //  $order->transaction_id=$transaction_id;
-            //  $order->save();
+            $order=DB::table('books')->where('order_id',$id)->update(['status' => "complete",'transaction_id'=>$transaction_id]);
             return view('user.page.ordercomplete',compact('order'));
         }else if('TXN_FAILURE'===$request['STUTUS']){
             return view('user.page.paymentfail');

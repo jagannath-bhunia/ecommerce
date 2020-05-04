@@ -18,20 +18,7 @@
                         </div>
                         
                         <br>
-                        @if ($message = Session::get('success'))
-                        <div class="alert alert-success alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>	
-                                <strong>{{ $message }}</strong>
-                        </div>
-                        @endif
-
-
-                        @if ($message = Session::get('error'))
-                        <div class="alert alert-danger alert-block">
-                            <button type="button" class="close" data-dismiss="alert">×</button>	
-                                <strong>{{ $message }}</strong>
-                        </div>
-                        @endif
+                      @include("admin.common.message")
                         <div class="row">
                             <div class="col-lg-12">
                                 
@@ -99,7 +86,14 @@
 
     </div>
 
+    <SCript>
+    $("document").ready(function(){
+    setTimeout(function(){
+       $("div.alert").remove();
+    }, 5000 ); // 5 secs
 
+});
+</SCript>
         
 @endsection
    

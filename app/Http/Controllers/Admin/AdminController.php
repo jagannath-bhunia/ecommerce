@@ -23,10 +23,6 @@ class AdminController extends Controller
             ]);
             $user = $request->only('email', 'password');
             if (Auth::guard('admin')->attempt($user)) {
-
-        // echo "<pre>";
-        // print_r(Auth::user());
-        // exit();
             return redirect()->route('admin.dashboard')->with('success', 'Login successfully.');
             }
             else{
@@ -54,6 +50,11 @@ class AdminController extends Controller
         $success['password'] =  $user->password;
         
         return response()->json(['success'=>$success], 200);
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/')->with('success', 'Logout successfully.');
     }
 
 }

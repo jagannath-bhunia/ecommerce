@@ -1,5 +1,5 @@
 @extends("user.layout.userlayout")
-@section('title','dashboard')
+@section('title','shop')
 
 @section("body")
 
@@ -179,7 +179,7 @@
                                                         </ul>
                                                     </div>
                                                     <div class="product-action">
-                                                        <a class="action-plus-2 p-action-none" title="Add To Cart" href="#">
+                                                        <a class="action-plus-2 p-action-none" title="Add To Cart" onclick="add({{$items->id}})">
                                                             <i class=" ti-shopping-cart"></i>
                                                         </a>
                                                         <a class="action-cart-2" title="Wishlist" href="#">
@@ -191,7 +191,7 @@
                                                     </div>
                                                     <div class="product-content-wrapper">
                                                         <div class="product-title-spreed">
-                                                            <h4><a href="{{route('admin.productdetails', $items->id)}}">Gloriori GSX 250 R</a></h4>
+                                                            <h4><a href="{{route('admin.productdetails', $items->id)}}">{{$items->name}}</a></h4>
                                                             <span>{{$items->about}}</span>
                                                         </div>
                                                         <div class="product-price">
@@ -200,7 +200,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="product-list-details">
-                                                    <h2><a href="product-details.html">Gloriori GSX 250 R</a></h2>
+                                                    <h2><a href="product-details.html">{{$items->name}}</a></h2>
                                                     <div class="quick-view-rating">
                                                         <i class="fa fa-star reting-color"></i>
                                                         <i class="fa fa-star reting-color"></i>
@@ -211,14 +211,15 @@
                                                     <div class="product-price">
                                                         <span>${{$items->price}}</span>
                                                     </div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore mag aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo it. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipic it, sed do eiusmod tempor incididunt ut labore et dolore mag aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo it. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                                                     <div class="shop-list-cart">
                                                         <a href="{{ url('add-to-cart/'.$items->id) }}"><i class="ti-shopping-cart"></i> Add to cart</a>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
 
-                                            
+                                            <input type="hidden" id="_token" value="<?php echo csrf_token();?>">
+
                                         </div>
                                         @endforeach
                                     </div>
@@ -1218,5 +1219,31 @@
                 </div>
             </div>
 
+            <script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous">
+</script>
+<script>
+  
+    function add($id){
+        var token=$("#_token").val();
+        var url="{{ route('user.add-to-cart') }}";
 
+        $.ajax({
+        url:url,
+        type:'GET',
+        data:{qty:1,_token:token,item_id:$id},
+   
+        success:function(response)
+        {
+            abc();
+        }
+    });
+
+    }
+
+
+
+</script>
 @endsection
