@@ -2,15 +2,15 @@
 @section('title','shop')
 
 @section("body")
-<div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
+<div class="breadcrumb-area pt-255 pb-170" style="background-image: url({{ URL::asset('user/img/banner/banner-9.jpg')}})">
                 <div class="container-fluid">
                     <div class="breadcrumb-content text-center">
-                        <h2 style="color:black">Contact Us</h2>
+                        <h2 >Contact Us</h2>
                         <ul>
                             <li>
-                                <a href="#" style="color:black">home</a>
+                                <a href="{{url('/home')}}">home</a>
                             </li>
-                            <li style="color:black" >Contact Us</li>
+                            <li  >Contact Us</li>
                         </ul>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                                 <div class="contact-message-wrapper">
                                     <h4 class="contact-title">GET IN TOUCH</h4>
                                     <div class="contact-message">
-                                        <form  action="{{URL('/message')}}" method="post">
+                                        <form  action="{{route('user.message')}}" method="post">
                                         @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -109,6 +109,17 @@
                     </div>
                 </div>
             </div>
+
+            <style>
+
+.breadcrumb-area{
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 90vh;
+width: 100%;
+}
+</style>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMlLa3XrAmtemtf97Z2YpXwPLlimRK7Pk"></script>
 		<script>
             function init() {

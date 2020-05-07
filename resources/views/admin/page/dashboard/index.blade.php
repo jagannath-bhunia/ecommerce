@@ -30,7 +30,6 @@
                                                 <th>Cat Id</th>
                                                 <th>Name</th>
                                                 <th>About</th>
-                                                <th>Quantity</th>
                                                 <th class="text-right">Price</th>
                                                 <th>Image</th>
                                                 <th class="text-right">Show</th>
@@ -45,10 +44,8 @@
                                                 <td>{{$user->cat_id}}</td>
                                                 <td>{{$user->name}}</td>
                                                 <td>{{$user->about}}</td>
-                                                <td>{{$user->Quantity}}</td>
                                                 <td class="text-right">{{$user->price}}</td>
                                                 <td class="text-right"><img src="{{asset('uploads/item/' . $user->image  )}}" alt="abc"></td>
-
                                                 <td>
                                                     <a href="{{route('admin.show', $user->id)}}" class="btn btn-primary">show</a>
                                                 </td>
@@ -70,7 +67,7 @@
                                     </table>
 
                                     <div class="d-flex justify-content-center aling-items-center ">
-                                        <div>{{$std->links()}}  </div>
+                                        
                                     </div>
                                 </div>
                             </div>

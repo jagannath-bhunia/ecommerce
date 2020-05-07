@@ -18,7 +18,6 @@ class CreateOrdersTable extends Migration
             $table->integer('book_id');
             $table->integer('item_id');
             $table->string('qty');
-           
             $table->timestamps();
         });
     }

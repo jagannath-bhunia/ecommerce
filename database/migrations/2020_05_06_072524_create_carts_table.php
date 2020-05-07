@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccessoriesTable extends Migration
+class CreateCartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateAccessoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('accessories', function (Blueprint $table) {
-            $table->id();
+        Schema::create('carts', function (Blueprint $table) {
+            $table->bigIncrements('cart_id');
+            $table->integer('user_id');
+            $table->integer('item_id');
+            $table->string('qty');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAccessoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accessories');
+        Schema::dropIfExists('carts');
     }
 }

@@ -26,7 +26,7 @@
                                     
                                 <div class="container">
                                 
-                                    <form action="{{URL('/storecartagory')}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{route('admin.storecartagory')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                         <div class="form-group">
                                           <label for="">Name</label>

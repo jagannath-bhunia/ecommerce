@@ -2,15 +2,15 @@
 @section('title','dashboard')
 
 @section("body")
-<div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
+<div class="breadcrumb-area pt-255 pb-170" style="background-image: url({{ URL::asset('user/img/banner/banner-9.jpg')}})">
                 <div class="container-fluid">
                     <div class="breadcrumb-content text-center" >
-                        <h2 style="color:black">product details </h2>
+                        <h2 >product details </h2>
                         <ul>
                             <li>
-                                <a href="{{route('user.index')}}" style="color:black">home</a>
+                                <a href="{{url('/home')}}" >home</a>
                             </li>
-                            <li style="color:black" >product details </li>
+                            <li  >product details </li>
                         </ul>
                     </div>
                 </div>
@@ -158,7 +158,16 @@
                 <input type="hidden" name="item_id" id="item_id" value="{{$item['id']}}">
                 <input type="hidden" id="_token" value="<?php echo csrf_token();?>">
             </div>
+            <style>
 
+.breadcrumb-area{
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 90vh;
+width: 100%;
+}
+</style>
 <script
         src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="

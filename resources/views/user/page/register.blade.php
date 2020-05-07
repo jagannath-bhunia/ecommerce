@@ -4,7 +4,7 @@
 @section("body")
 
 <!--section start-->
-<div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
+<div class="breadcrumb-area pt-255 pb-170" style="background-image: url({{ URL::asset('user/img/banner/banner-9.jpg')}})">
                 <div class="container-fluid">
                     <div class="breadcrumb-content text-center">
                         <h2 style="color:black">login / register</h2>
@@ -97,5 +97,16 @@
                     </div>
                 </div>
             </div>
+
+            <style>
+
+.breadcrumb-area{
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 90vh;
+width: 100%;
+}
+</style>
 <!--Section ends-->
 @endsection

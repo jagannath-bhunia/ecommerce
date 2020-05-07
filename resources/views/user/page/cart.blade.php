@@ -23,15 +23,15 @@
 <body>
  
 
-<div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
+<div class="breadcrumb-area pt-255 pb-170" style="background-image: url({{ URL::asset('user/img/banner/banner-9.jpg')}})">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
-            <h2 style="color:black">Cart page</h2>
+            <h2 >Cart page</h2>
             <ul>
                 <li>
-                    <a href="#"style="color:black" >home</a>
+                    <a href="{{url('/home')}}" >home</a>
                 </li>
-                <li style="color:black" >Cart page</li>
+                <li >Cart page</li>
             </ul>
         </div>
     </div>
@@ -132,7 +132,7 @@
         var qty=$('#qty-'+$id).val();
         
         var token=$("#_token").val();
-        var url='{{ url('update-cart') }}';
+        var url='{{route('user.update-cart') }}';
         $.ajax({
         url:url,
         type:'PATCH',
@@ -151,7 +151,7 @@
        // alert($id);
         var cart_id=$("#cart_id").val();
         var token=$("#_token").val();
-        var url='{{ url('remove-from-cart') }}';
+        var url='{{ route('user.remove-from-cart') }}';
         if(confirm("Are you sure")) {
             $.ajax({
             url:url,
@@ -169,7 +169,16 @@
 
 
 </script>
+<style>
 
+.breadcrumb-area{
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 90vh;
+width: 100%;
+}
+</style>
  <style>
     .main-section{
         background-color: #F8F8F8;

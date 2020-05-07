@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="{{ URL::asset('public/admin/images/icon/avatar-06.jpg')}}" alt="Michelle Moreno" />
+                                        <img src="{{ URL::asset('public/admins/images/icon/avatar-06.jpg')}}" alt="Michelle Moreno" />
                                     </div>
                                     <div class="content">
                                         <h6>Michelle Moreno</h6>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="mess__item">
                                     <div class="image img-cir img-40">
-                                        <img src="{{ URL::asset('public/admin/images/icon/avatar-04.jpg')}}" alt="Diane Myers" />
+                                        <img src="{{ URL::asset('public/admins/images/icon/avatar-04.jpg')}}" alt="Diane Myers" />
                                     </div>
                                     <div class="content">
                                         <h6>Diane Myers</h6>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="{{ URL::asset('public/admin/images/icon/avatar-06.jpg')}}" alt="Cynthia Harvey" />
+                                        <img src="{{ URL::asset('public/admins/images/icon/avatar-06.jpg')}}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="{{ URL::asset('public/admin/images/icon/avatar-05.jpg')}}" alt="Cynthia Harvey" />
+                                        <img src="{{ URL::asset('public/admins/images/icon/avatar-05.jpg')}}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="email__item">
                                     <div class="image img-cir img-40">
-                                        <img src="{{ URL::asset('public/admin/images/icon/avatar-04.jpg')}}" alt="Cynthia Harvey" />
+                                        <img src="{{ URL::asset('public/admins/images/icon/avatar-04.jpg')}}" alt="Cynthia Harvey" />
                                     </div>
                                     <div class="content">
                                         <p>Meeting about new dashboard...</p>
@@ -124,20 +124,33 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="{{ URL::asset('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                <img src="{{ URL::asset('admins/images/icon/avatar-01.jpg')}}" alt="John Doe" />
                             </div>
                             <div class="content">
-                                <a class="js-acc-btn" href="#">{{Auth::User()->name}}</a>
-                                
-                                <a href="{{route('logout')}}" class="au-btn au-btn-icon au-btn--blue">Logout</a>
-                                
+                            <div class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </div>
                             </div>
                             
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="{{ URL::asset('admin/images/icon/avatar-01.jpg')}}" alt="John Doe" />
+                                            <img src="{{ URL::asset('admins/images/icon/avatar-01.jpg')}}" alt="John Doe" />
                                         </a>
                                     </div>
                                     <div class="content">

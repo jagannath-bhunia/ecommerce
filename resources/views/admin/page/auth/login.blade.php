@@ -5,7 +5,7 @@
     <h2>LOGIN</h2>
     @include("admin.common.message")
     <div class="login-form">
-        <form action="{{url('login')}}" method="post">
+        <form action="{{ route('admin.login.submit') }}" method="post">
         {{csrf_field()}}
             <div class="form-group">
                 <label>Email Address</label>
@@ -20,7 +20,7 @@
             <div class="login-checkbox">
                 
                 <label>
-                    <a href="{{url('forgotpassword')}}">Forgotten Password?</a>
+                    <a href="">Forgotten Password?</a>
                 </label>
             </div>
             <button class="au-btn au-btn--block m-b-20 custom-button" type="submit">sign in</button>    

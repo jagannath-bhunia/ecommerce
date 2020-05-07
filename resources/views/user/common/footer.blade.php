@@ -55,9 +55,9 @@
                         </div>
                         <div class="quick-links">
                             <ul>
-                                <li><a href="{{route('user.aboutus')}}">About us</a></li>
-                                <li><a href="{{route('user.shop')}}">Shop</a></li>
-                                <li><a href="{{route('user.contuctus')}}">Contact</a></li>
+                                <li><a href="{{ route('user.aboutus') }}">About us</a></li>
+                                <li><a href="{{ route('user.shop') }}">Shop</a></li>
+                                <li><a href="{{ route('user.contuctus') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>

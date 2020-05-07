@@ -233,7 +233,7 @@ class Stringable
      */
     public function isEmpty()
     {
-        return empty($this->value);
+        return $this->value === '';
     }
 
     /**
@@ -527,6 +527,19 @@ class Stringable
     public function substr($start, $length = null)
     {
         return new static(Str::substr($this->value, $start, $length));
+    }
+
+    /**
+     * Returns the number of substring occurrences.
+     *
+     * @param  string  $needle
+     * @param  int|null  $offset
+     * @param  int|null  $length
+     * @return int
+     */
+    public function substrCount($needle, $offset = null, $length = null)
+    {
+        return Str::substrCount($this->value, $needle, $offset, $length);
     }
 
     /**

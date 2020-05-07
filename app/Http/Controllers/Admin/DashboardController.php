@@ -9,10 +9,7 @@ use App\Models\Catagory; ;
 
 class DashboardController extends Controller
 {
-    public function index(){
-        $std=Item::latest()->paginate(10);
-        return view('admin.page.dashboard.index', compact('std'));
-    }
+    
 
     public function create(){
         $cat=catagory::all();
@@ -24,7 +21,6 @@ class DashboardController extends Controller
             'cat_id'=>'required',
             'name'=>'required',
             'about'=>'required',
-            'Quantity'=>'required',
             'price'=>'required',
             'image'=>'required',
         ]);
@@ -38,7 +34,6 @@ class DashboardController extends Controller
             'cat_id'=>$request->cat_id,
             'name'=>$request->name,
             'about'=>$request->about,
-            'Quantity'=>$request->Quantity,
             'price'=>$request->price,
             'image'=>$new
         );
@@ -71,7 +66,7 @@ class DashboardController extends Controller
         $item->cat_id = $request->input('cat_id');
         $item->name = $request->input('name');
         $item->about = $request->input('about');
-        $item->Quantity = $request->input('Quantity');
+        
         $item->price = $request->input('price');
         if($request->hasfile('image')){
             $file = $request->file('image');

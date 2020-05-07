@@ -17,55 +17,13 @@ class UserController extends Controller
         return view('user.page.index',compact('std'));
     }
 
-    public function userloginform(){
-        return view('user.page.register');   
-    }
 
-    public function userlogin(Request $request){
-        $request->validate([
-            'email'=>'required|email',
-            'password'=>'required',
-        ]);
-        $user = $request->only('email', 'password');   
-        if (Auth::guard('user')->attempt($user)) {
-            return redirect()->route('user.index')->with('success', 'Login successfully.');
-            //echo "Login success";
-        }
-        else{
-            return redirect('userloginform')->with('error', 'These credentials do not match our records.');
-
-        }
-
-    }
-
-    public function userregister(Request $request){
-        $request->validate([
-            'name' => 'required', 
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required','unique:users'],
-            'password' => 'required', 
-        ]);
-        $input = $request->all(); 
-//         echo "<pre>";
-//         print_r($input);
-// exit();
-        $input['password'] = bcrypt($input['password']); 
-        $user = User::create($input); 
-
-        if($user){
-            return redirect()-> route('user.index')->with('success','success');
-           // echo "Register success";
-        }else{
-            return redirect('userregister')->with('error','Invalid email and password');
-        }
-    }
-
-
-    public function userlogout(Request $request){
+    public function logoutuser(){
         Auth::logout();
-       
-        return redirect('userloginform')->with('success', 'Logout successfully.');
+        return redirect('/login')->with('success', 'Logout successfully.');
     }
+
+   
 
 
     public function shop(){
@@ -109,7 +67,7 @@ class UserController extends Controller
         // exit();
         $add = Message::create($from_data);
         if($add){
-            return redirect()-> route('user.index')->with('success','Message send success');
+            return redirect()-> route('user.contuctus')->with('success','Message send success');
         }else{
             return redirect('user.message')->with('error','unsuccess');
         }

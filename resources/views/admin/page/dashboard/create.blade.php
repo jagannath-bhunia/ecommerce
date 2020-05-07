@@ -26,7 +26,7 @@
                                     
                                 <div class="container">
                                 
-                                    <form action="{{URL('/store')}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{route('admin.store')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="form-group">
                                         <select name="cat_id" id="" >
@@ -48,12 +48,6 @@
                                           <label for="">About</label>
                                           <input type="text" name="about" id="" class="form-control" placeholder="Enter user about" value="{{old('about')}}">
                                           {!! $errors->first('about', '<small class="text-danger">:message</small>') !!}
-
-                                        </div>
-                                        <div class="form-group">
-                                          <label for="">Quantity</label>
-                                          <input type="number" name="Quantity" id="" class="form-control" placeholder="Enter user quantity" value="{{old('Quantity')}}">
-                                          {!! $errors->first('Quantity', '<small class="text-danger">:message</small>') !!}
 
                                         </div>
                                         <div class="form-group">

@@ -3,15 +3,15 @@
 
 @section("body")
 
-<div class="breadcrumb-area pt-255 pb-170" style="background-image: url(assets/img/banner/banner-4.jpg)">
+<div class="breadcrumb-area pt-255 pb-170" style="background-image: url({{ URL::asset('user/img/banner/banner-9.jpg')}})">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
-            <h2 style="color:black">checkout page</h2>
+            <h2 >checkout page</h2>
             <ul>
                 <li>
-                    <a href="#" style="color:black">home</a>
+                    <a href="{{url('/home')}}" >home</a>
                 </li>
-                <li style="color:black">checkout page</li>
+                <li>checkout page</li>
             </ul>
         </div>
     </div>
@@ -80,6 +80,8 @@
                                                 <label>Country <span class="required">*</span></label>
                                                 <select id="country" name="country">
                                                   <option name="country" id="country" value="India">India</option>
+                                                  <option name="country" id="country" value="India">Usa</option>
+                                                  <option name="country" id="country" value="India">London</option>
                                                   {!! $errors->first('country', '<small class="text-danger">:message</small>') !!}
 
                                                   <!-- <option value="saab">USA</option>
@@ -358,50 +360,15 @@
             </div>
             <!-- checkout-area end -->
 
-<!-- 
-<script
-src="https://code.jquery.com/jquery-3.4.1.js"
-integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-crossorigin="anonymous">
-</script>
-<script>
-  
-    function book(){
-        //alert(id);
-        var item_id=$("#item_id").val();
-        var country=$("#country").val();
-        var f_name=$("#f_name").val();
-        var l_name=$("#l_name").val();
-        var address=$("#address").val();
-        var city=$("#city").val();
-        var state=$("#state").val();
-        var zip=$("#zip").val();
-        var email=$("#email").val();
-        var phone=$("#phone").val();
-        var payment=$("#payment").val();
-        var token=$("#_token").val();
-        var total={{$total}};
-        var qty=$("#qty").val();
+<style>
 
-        var url="{{ route('user.book') }}";
-        
-        $.ajax({
-            url:url,
-            type:'POST',
-            data:{country:country,_token:token,item_id:item_id,f_name:f_name,l_name:l_name,address:address,city:city,state:state,zip:zip,
-                email:email,phone:phone,payment:payment,total:total,qty:qty},
-        
-            success:function(response)
-            {
-                
-                
-                // abc();
-                window.location.href='https://securegw-stage.paytm.in/theia/processTransaction';
-            }
-        });
-
-    }
-
-</script> -->
+.breadcrumb-area{
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 90vh;
+width: 100%;
+}
+</style>
 
 @endsection
