@@ -10,7 +10,10 @@ use App\Models\Catagory; ;
 class DashboardController extends Controller
 {
     
-
+    public function index(){
+        $std=Item::latest()->paginate(10);
+        return view('admin.page.dashboard.index', compact('std'));
+    }
     public function create(){
         $cat=catagory::all();
         return view('admin.page.dashboard.create', compact('cat'));

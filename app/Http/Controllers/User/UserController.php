@@ -12,6 +12,10 @@ use App\Models\Item;
 use App\Models\Message;   
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
         $std=Item::all();
         return view('user.page.index',compact('std'));

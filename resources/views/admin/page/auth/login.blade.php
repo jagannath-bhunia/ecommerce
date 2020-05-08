@@ -4,6 +4,7 @@
 <div class="login-content">
     <h2>LOGIN</h2>
     @include("admin.common.message")
+    
     <div class="login-form">
         <form action="{{ route('admin.login.submit') }}" method="post">
         {{csrf_field()}}

@@ -37,10 +37,14 @@ Route::prefix('user')->group(function(){
 });
 Route::post('/paytmcallback', 'User\CartController@paytmcallback');
 
+
+// Route::get('/admin', 'Auth\AdminLoginController@showLoginform')->name('admin.login');
+
 Route::prefix('admin')->group(function(){
-    Route::get('/login', 'Auth\AdminLoginController@showLoginform')->name('admin.login');
+    Route::get('/', 'Auth\AdminLoginController@showLoginform')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+    Route::get('/dashboard', 'Admin\AdminController@index')->name('admin.dashboard');
+    Route::post('/logoutadmin', ['as' => 'admin.logoutadmin','uses' => 'Admin\AdminController@logoutadmin']);
 
 
     Route::get('/create', ['as' => 'admin.create','uses' => 'Admin\DashboardController@create']);
